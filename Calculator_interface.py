@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter.ttk import *  #import this because to determine buttons style easier.
-from calculator_functions import numbers_command
+from calculator_functions import numbers_command, sign_command
 
 buttons_height = 50
 buttons_width = 70
@@ -8,7 +8,7 @@ numbers_color = "red"
 signs_color = "blue"
 equal_color = "orange"
 
-calculator_screen = Tk()            #screen opening.
+calculator_screen = Tk()            #screen opening
 
 calculator_screen.title("CALCULATOR")
 calculator_screen.geometry("490x400")
@@ -29,7 +29,7 @@ calculated_label.place(x=0,y=50,height=100,width=490)
 calculated_label.configure(background="green")
 
 #BUTTONS
-sign_button = Button(calculator_screen,text="+/-",command= None)
+sign_button = Button(calculator_screen,text="+/-",command=lambda: sign_command(writing_label))
 sign_button.place(x=0,y=350,height=buttons_height,width=buttons_width)
 button_0 = Button(calculator_screen,text="0",command=lambda: numbers_command(writing_label,0))
 button_0.place(x=70,y=350,height=buttons_height,width=buttons_width)
