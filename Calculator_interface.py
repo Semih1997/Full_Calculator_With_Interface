@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter.ttk import *  #import this because to determine buttons style easier.
-from calculator_functions import numbers_command, sign_command
+from calculator_functions import numbers_command, sign_command, dot_command
 
 buttons_height = 50
 buttons_width = 70
@@ -33,7 +33,7 @@ sign_button = Button(calculator_screen,text="+/-",command=lambda: sign_command(w
 sign_button.place(x=0,y=350,height=buttons_height,width=buttons_width)
 button_0 = Button(calculator_screen,text="0",command=lambda: numbers_command(writing_label,0))
 button_0.place(x=70,y=350,height=buttons_height,width=buttons_width)
-button_dot = Button(calculator_screen,text=".",command=None)
+button_dot = Button(calculator_screen,text=".",command=lambda: dot_command(writing_label))
 button_dot.place(x=140,y=350,height=buttons_height,width=buttons_width)
 button_equal = Button(calculator_screen,text="=",command=None)
 button_equal.place(x=210,y=350,height=buttons_height,width=buttons_width)
