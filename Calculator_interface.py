@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter.ttk import *  #import this because to determine buttons style easier.
-from calculator_functions import numbers_command, sign_command, dot_command
+from calculator_functions import numbers_command, sign_command, dot_command, process_command, clear_command, square_percent_command
 
 buttons_height = 50
 buttons_width = 70
@@ -21,10 +21,10 @@ style.configure('TButton', font =
 style.map('TButton', foreground = [('active', '!disabled', 'green')])
 
 #LABELS
-writing_label = Label(calculator_screen,text="0",font=("calibri",17,"bold"))
+writing_label = Label(calculator_screen,text="",font=("calibri",17,"bold"))
 writing_label.place(x=0,y=0,height=50,width=490)
 writing_label.configure(background="orange")
-calculated_label = Label(calculator_screen,text="")
+calculated_label = Label(calculator_screen,text="0",font=("calibri",17,"bold"))
 calculated_label.place(x=0,y=50,height=100,width=490)
 calculated_label.configure(background="green")
 
@@ -43,7 +43,7 @@ button_2 = Button(calculator_screen,text="2",command=lambda: numbers_command(wri
 button_2.place(x=70,y=300,height=buttons_height,width=buttons_width)
 button_3 = Button(calculator_screen,text="3",command=lambda: numbers_command(writing_label,3))
 button_3.place(x=140,y=300,height=buttons_height,width=buttons_width)
-button_plus = Button(calculator_screen,text="+",command=None)
+button_plus = Button(calculator_screen,text="+",command=lambda: process_command(writing_label,calculated_label,"+"))
 button_plus.place(x=210,y=300,height=buttons_height,width=buttons_width)
 button_4 = Button(calculator_screen,text="4",command=lambda: numbers_command(writing_label,4))
 button_4.place(x=0,y=250,height=buttons_height,width=buttons_width)
@@ -51,7 +51,7 @@ button_5 = Button(calculator_screen,text="5",command=lambda: numbers_command(wri
 button_5.place(x=70,y=250,height=buttons_height,width=buttons_width)
 button_6 = Button(calculator_screen,text="6",command=lambda: numbers_command(writing_label,6))
 button_6.place(x=140,y=250,height=buttons_height,width=buttons_width)
-button_minus = Button(calculator_screen,text="-",command=None)
+button_minus = Button(calculator_screen,text="-",command=lambda: process_command(writing_label,calculated_label,"-"))
 button_minus.place(x=210,y=250,height=buttons_height,width=buttons_width)
 button_7 = Button(calculator_screen,text="7",command=lambda: numbers_command(writing_label,7))
 button_7.place(x=0,y=200,height=buttons_height,width=buttons_width)
@@ -59,15 +59,15 @@ button_8 = Button(calculator_screen,text="8",command=lambda: numbers_command(wri
 button_8.place(x=70,y=200,height=buttons_height,width=buttons_width)
 button_9 = Button(calculator_screen,text="9",command=lambda: numbers_command(writing_label,9))
 button_9.place(x=140,y=200,height=buttons_height,width=buttons_width)
-button_multiple = Button(calculator_screen,text="x",command=None)
+button_multiple = Button(calculator_screen,text="x",command=lambda: process_command(writing_label,calculated_label,"x"))
 button_multiple.place(x=210,y=200,height=buttons_height,width=buttons_width)
-button_clear = Button(calculator_screen,text="C",command=None)
+button_clear = Button(calculator_screen,text="C",command=lambda: clear_command(writing_label,calculated_label))
 button_clear.place(x=0,y=150,height=buttons_height,width=buttons_width)
-button_parantesies = Button(calculator_screen,text="( )",command=None)
-button_parantesies.place(x=70,y=150,height=buttons_height,width=buttons_width)
-button_percent = Button(calculator_screen,text="%",command=None)
+button_square = Button(calculator_screen,text="x^2",command=lambda: square_percent_command(writing_label,"x^2"))
+button_square.place(x=70,y=150,height=buttons_height,width=buttons_width)
+button_percent = Button(calculator_screen,text="%",command=lambda: square_percent_command(writing_label,"%"))
 button_percent.place(x=140,y=150,height=buttons_height,width=buttons_width)
-button_divide = Button(calculator_screen,text="/",command=None)
+button_divide = Button(calculator_screen,text="/",command=lambda: process_command(writing_label,calculated_label,"/"))
 button_divide.place(x=210,y=150,height=buttons_height,width=buttons_width)
 
 calculator_screen.resizable(False,False)
