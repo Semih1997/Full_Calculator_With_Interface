@@ -50,3 +50,4 @@ def square_percent_command(writing_label,x):
     else:
         percent_num = float(writing_label.cget("text")) / 100
         writing_label.config(text = percent_num)
+    
